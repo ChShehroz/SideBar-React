@@ -1,12 +1,19 @@
 import React from "react";
 import logo from "../../Assest/Images/logo-ct-dark.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faStore } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleDown,
+  faBasketShopping,
+  faRocket,
+  faScrewdriverWrench,
+  faStore,
+} from "@fortawesome/free-solid-svg-icons";
 import "../../Assest/Style/Index.css";
+import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
 
 const SideBar = () => {
   return (
-    <aside className="fixed w-64 bg-[#e5e9ed] mt-4 mr-0 mb-4 ml-4 bg-transparent rounded-2xl overflow overscroll-y-auto">
+    <aside className=" w-64 bg-[#e5e9ed] mt-4 mr-0 mb-4 ml-4 bg-transparent rounded-2xl ">
       <div className="h-20 px-8 py-6">
         <a className="flex items-center">
           <img className="max-h-8" src={logo} alt="main-logo" />
@@ -83,7 +90,10 @@ const SideBar = () => {
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
-                <FontAwesomeIcon className="h-3 w-3" icon={faStore} />
+                <FontAwesomeIcon
+                  className="h-3 w-3"
+                  icon={faScrewdriverWrench}
+                />
               </div>
 
               <span className="text-xs text-[#67748e] font-medium leading-6">
@@ -114,7 +124,7 @@ const SideBar = () => {
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
-                <FontAwesomeIcon className="h-3 w-3" icon={faStore} />
+                <FontAwesomeIcon className="h-3 w-3" icon={faBasketShopping} />
               </div>
 
               <span className="text-xs text-[#67748e] font-medium leading-6">
@@ -182,7 +192,7 @@ const SideBar = () => {
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
-                <FontAwesomeIcon className="h-3 w-3" icon={faStore} />
+                <FontAwesomeIcon className="h-3 w-3" icon={faRocket} />
               </div>
 
               <span className="text-xs text-[#67748e] font-medium leading-6">
@@ -213,7 +223,7 @@ const SideBar = () => {
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
-                <FontAwesomeIcon className="h-3 w-3" icon={faStore} />
+                <FontAwesomeIcon className="h-3 w-3" icon={faCreditCard} />
               </div>
 
               <span className="text-xs text-[#67748e] font-medium leading-6">
@@ -244,11 +254,11 @@ const SideBar = () => {
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
-                <FontAwesomeIcon className="h-3 w-3" icon={faStore} />
+                <FontAwesomeIcon className="h-3 w-3" icon={faCreditCard} />
               </div>
 
               <span className="text-xs text-[#67748e] font-medium leading-6">
-                Applications
+                Changelog
               </span>
             </button>
           </li>
