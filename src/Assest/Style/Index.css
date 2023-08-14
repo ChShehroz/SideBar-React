@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: #f8f9fa;
-    color: #67748e;
+body {
+  background-color: #f8f9fa;
+  color: #67748e;
+}
+
+#dashboard {
+  box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+}
+.boxShadow {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 20px 29px 0px;
 }
