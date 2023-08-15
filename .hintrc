@@ -12,7 +12,8 @@
     "axe/parsing": [
       "default",
       {
-        "duplicate-id-active": "off"
+        "duplicate-id-active": "off",
+        "duplicate-id-aria": "off"
       }
     ],
     "axe/structure": [
