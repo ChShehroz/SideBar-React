@@ -29,6 +29,12 @@
           "overflow-anchor"
         ]
       }
+    ],
+    "axe/aria": [
+      "default",
+      {
+        "aria-required-children": "off"
+      }
     ]
   }
 }

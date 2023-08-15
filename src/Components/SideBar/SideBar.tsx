@@ -44,9 +44,9 @@ const SideBar = () => {
       <hr className="border-t w-60 mt-0 mb-4 h-px bg-transparent bg-gradient-to-r from-transparent  via-black/40 to-transparent " />
       <div className="items-center block w-full h-auto grow basis-full">
         <ul className="flex flex-col pl-0 mb-0 list-none">
-          <li className="mt-0.5 w-full">
+          <li className="mt-0.5 w-full ">
             <a
-              className="flex items-center whitespace-nowrap bg-white rounded-lg px-4 py-2.5 mx-4 my-0"
+              className="group flex items-center whitespace-nowrap bg-white rounded-lg px-4 py-2.5 mx-4 my-0 hover:bg-neutral-300 hover:ring-neutral-300 hover:cursor-pointer"
               id="dashboard"
             >
               <div className="w-8 h-8 flex bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg justify-center items-center mr-2 boxShadow">
@@ -56,11 +56,11 @@ const SideBar = () => {
                 />
               </div>
 
-              <span className="ml-1 text-sm text-[#344767] font-semibold leading-6">
+              <span className="group-hover:text-purple-600 ml-1 text-sm text-[#344767] font-semibold leading-6">
                 Dashboards
               </span>
               <FontAwesomeIcon
-                className="ml-16 h-2.5 w-2.5  text-[#4b5568]"
+                className="group-hover:stroke-white ml-16 h-2.5 w-2.5  text-[#4b5568]"
                 icon={faAngleDown}
               />
             </a>
