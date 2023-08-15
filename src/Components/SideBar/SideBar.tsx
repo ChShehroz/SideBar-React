@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleDown,
   faBasketShopping,
+  faCity,
   faRocket,
   faScrewdriverWrench,
   faStore,
@@ -13,7 +14,7 @@ import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
 
 const SideBar = () => {
   return (
-    <aside className=" w-64 bg-[#e5e9ed] mt-4 mr-0 mb-4 ml-4 bg-transparent rounded-2xl ">
+    <aside className="fixed inset-y-0 overflow-y-auto w-[274px] psOver bg-[#e5e9ed] mt-4 mr-0 mb-4 ml-4 bg-transparent rounded-2xl psActiveY">
       <div className="h-20 px-8 py-6">
         <a className="flex items-center">
           <img className="max-h-8" src={logo} alt="main-logo" />
@@ -22,7 +23,7 @@ const SideBar = () => {
           </span>
         </a>
       </div>
-      <hr className="border-t mt-0 mb-4 h-px bg-transparent bg-gradient-to-r from-transparent  via-black/40 to-transparent " />
+      <hr className="border-t w-60 mt-0 mb-4 h-px bg-transparent bg-gradient-to-r from-transparent  via-black/40 to-transparent " />
       <div className="items-center block w-full h-auto grow basis-full">
         <ul className="flex flex-col pl-0 mb-0 list-none">
           <li className="mt-0.5 w-full">
@@ -58,11 +59,11 @@ const SideBar = () => {
               type="button"
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
-              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
-                <FontAwesomeIcon className="h-3 w-3" icon={faStore} />
+              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
+                <FontAwesomeIcon className="h-3 w-3" icon={faCity} />
               </div>
 
-              <span className="text-xs text-[#67748e] font-medium leading-6">
+              <span className="text-sm text-[#67748e] font-normal leading-6">
                 Pages
               </span>
               <svg
@@ -89,14 +90,14 @@ const SideBar = () => {
               type="button"
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
-              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
+              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon
                   className="h-3 w-3"
                   icon={faScrewdriverWrench}
                 />
               </div>
 
-              <span className="text-xs text-[#67748e] font-medium leading-6">
+              <span className="text-sm text-[#67748e] font-normal leading-6">
                 Applications
               </span>
               <svg
@@ -123,11 +124,11 @@ const SideBar = () => {
               type="button"
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
-              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
+              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon className="h-3 w-3" icon={faBasketShopping} />
               </div>
 
-              <span className="text-xs text-[#67748e] font-medium leading-6">
+              <span className="text-sm text-[#67748e] font-normal leading-6">
                 Ecommerce
               </span>
               <svg
@@ -154,11 +155,11 @@ const SideBar = () => {
               type="button"
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
-              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
+              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon className="h-3 w-3" icon={faStore} />
               </div>
 
-              <span className="text-xs text-[#67748e] font-medium leading-6">
+              <span className="text-sm text-[#67748e] font-normal leading-6">
                 Authentication
               </span>
               <svg
@@ -178,7 +179,7 @@ const SideBar = () => {
               </svg>
             </button>
           </li>
-          <hr className="border-t my-4 h-px bg-transparent bg-gradient-to-r from-transparent via-black/25 to-transparent " />
+          <hr className="border-t w-60 my-4 h-px bg-transparent bg-gradient-to-r from-transparent via-black/25 to-transparent " />
           <li className="mt-0 w-full">
             <h6 className="pl-6 ml-2 mb-2 font-bold leading-tight opacity-60 uppercase text-xs">
               Docs
@@ -191,11 +192,11 @@ const SideBar = () => {
               type="button"
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
-              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
+              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon className="h-3 w-3" icon={faRocket} />
               </div>
 
-              <span className="text-xs text-[#67748e] font-medium leading-6">
+              <span className="text-sm text-[#67748e] font-normal leading-6">
                 Basic
               </span>
               <svg
@@ -222,11 +223,11 @@ const SideBar = () => {
               type="button"
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
-              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
+              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon className="h-3 w-3" icon={faCreditCard} />
               </div>
 
-              <span className="text-xs text-[#67748e] font-medium leading-6">
+              <span className="text-sm text-[#67748e] font-normal leading-6">
                 Components
               </span>
               <svg
@@ -253,16 +254,19 @@ const SideBar = () => {
               type="button"
               className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
             >
-              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 boxShadow">
+              <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon className="h-3 w-3" icon={faCreditCard} />
               </div>
 
-              <span className="text-xs text-[#67748e] font-medium leading-6">
+              <span className="text-sm text-[#67748e] font-normal leading-6">
                 Changelog
               </span>
             </button>
           </li>
         </ul>
+      </div>
+      <div className="psRailY absolute top-0 right-0 h-[572px] ">
+        <div className="psThumbY absolute top-0 h-[284px]" tabIndex={0}></div>
       </div>
     </aside>
   );

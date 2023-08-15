@@ -20,6 +20,14 @@
       {
         "list": "off"
       }
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "overflow-anchor"
+        ]
+      }
     ]
   }
 }

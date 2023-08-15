@@ -11,5 +11,25 @@ body {
   box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
 }
 .boxShadow {
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 20px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 20px 27px 0px;
+}
+
+.psOver {
+  overflow: auto;
+  overflow-anchor: none;
+  -ms-overflow-style: none;
+  touch-action: auto;
+}
+
+.psOver::-webkit-scrollbar-track {
+  background-color: #cdd2d6;
+  border-radius: 6px;
+}
+.psOver::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+.psOver::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 6px;
 }

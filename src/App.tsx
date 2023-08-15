@@ -1,9 +1,8 @@
-import SideBar from './Components/SideBar/SideBar';
-import './Assest/Style/Index.css'
+import React from "react";
+import SideBar from "./Components/SideBar/SideBar";
+
 function App() {
-  return (
-    <SideBar/>
-  );
+  return <SideBar />;
 }
 
 export default App;
