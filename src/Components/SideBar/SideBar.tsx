@@ -70,13 +70,11 @@ const SideBar = ({ isOpen }: SidebarProps) => {
   return (
     <aside
       className={`" inset-y-0 psOver bg-[#e5e9ed] mt-4 mr-0 mb-4 ml-4 bg-transparent rounded-2xl " ${
-        isOpen
-          ? "fixed w-[90px] lg:overflow-y-auto"
-          : "fixed lg:overflow-y-auto"
+        isOpen ? "fixed  transition-all" : "fixed h transition-all"
       }`}
     >
       <div
-        className={`${
+        className={` ${
           isOpen
             ? "flex items-center justify-center h-20 px-5 py-6"
             : "h-20 px-8 py-6"
@@ -102,7 +100,7 @@ const SideBar = ({ isOpen }: SidebarProps) => {
       />
       <div className="items-center block w-full h-auto grow basis-full">
         <ul className="flex flex-col pl-0 mb-0 list-none">
-          <li className="mt-0.5 w-full ">
+          <li className={`mt-0.5 ${isOpen ? "w-[82px]" : "w-full "}`}>
             <a
               className={`"group hover:bg-neutral-300 hover:ring-neutral-300 hover:cursor-pointer  
               ${

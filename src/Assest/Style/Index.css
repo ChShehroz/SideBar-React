@@ -15,10 +15,11 @@ body {
 }
 
 .psOver {
-  overflow: auto;
+  overflow: hidden;
   overflow-anchor: none;
   -ms-overflow-style: none;
   touch-action: auto;
+  z-index: 1;
 }
 
 .psOver::-webkit-scrollbar-track {
@@ -32,4 +33,8 @@ body {
 .psOver::-webkit-scrollbar-thumb {
   background-color: #aaa;
   border-radius: 6px;
+}
+
+.psOver:hover {
+  overflow: auto;
 }
