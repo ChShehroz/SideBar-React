@@ -15,7 +15,7 @@ import { useState } from "react";
 
 const DropdownItem = ({ icon, text }: { icon: any; text: string }) => (
   <li className="w-full">
-    <a className="flex gap-5 text-sm py-1.5 ml-5.5 pl-1 my-0 mr-4 items-center bg-transparent whitespace-nowrap pr-4 font-normal text-slate-800/50 shadow-none transition-colors">
+    <a className="hover:cursor-pointer flex gap-5 text-sm py-1.5 ml-5.5 pl-1 my-0 mr-4 items-center bg-transparent whitespace-nowrap pr-4 font-normal text-slate-800/50 shadow-none transition-colors">
       <FontAwesomeIcon className="h-1.5 w-1.5" icon={icon} />
       <span>{text}</span>
     </a>
@@ -55,8 +55,10 @@ const DropdownItemDash: React.FC<DropdownItemDashProps> = ({
     </a>
   </li>
 );
-
-const SideBar = () => {
+interface SidebarProps {
+  isOpen: boolean;
+}
+const SideBar = ({ isOpen }: SidebarProps) => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const toggleDropdown = (dropdownId: string) => {
@@ -66,38 +68,76 @@ const SideBar = () => {
   };
   const [active, setActive] = useState(0);
   return (
-    <aside className="fixed inset-y-0 overflow-y-auto w-[274px] psOver bg-[#e5e9ed] mt-4 mr-0 mb-4 ml-4 bg-transparent rounded-2xl psActiveY">
-      <div className="h-20 px-8 py-6">
+    <aside
+      className={`" inset-y-0 psOver bg-[#e5e9ed] mt-4 mr-0 mb-4 ml-4 bg-transparent rounded-2xl " ${
+        isOpen
+          ? "fixed w-[90px] lg:overflow-y-auto"
+          : "fixed lg:overflow-y-auto"
+      }`}
+    >
+      <div
+        className={`${
+          isOpen
+            ? "flex items-center justify-center h-20 px-5 py-6"
+            : "h-20 px-8 py-6"
+        }`}
+      >
         <a className="flex items-center">
           <img className="max-h-8" src={logo} alt="main-logo" />
-          <span className="text-[#344767] mb-1 leading-6 text-sm font-semibold ml-2">
+          <span
+            className={` ${
+              isOpen
+                ? "hidden"
+                : "text-[#344767] mb-1 leading-6 text-sm font-semibold ml-2"
+            }`}
+          >
             Soft UI Dashboard PRO
           </span>
         </a>
       </div>
-      <hr className="border-t w-60 mt-0 mb-4 h-px bg-transparent bg-gradient-to-r from-transparent  via-black/40 to-transparent " />
+      <hr
+        className={`border-t my-4 h-px bg-transparent bg-gradient-to-r from-transparent via-black/25 to-transparent  ${
+          isOpen ? "w-20" : "w-60"
+        }`}
+      />
       <div className="items-center block w-full h-auto grow basis-full">
         <ul className="flex flex-col pl-0 mb-0 list-none">
           <li className="mt-0.5 w-full ">
             <a
-              className="group flex items-center whitespace-nowrap bg-white rounded-lg px-4 py-2.5 mx-4 my-0 hover:bg-neutral-300 hover:ring-neutral-300 hover:cursor-pointer"
+              className={`"group hover:bg-neutral-300 hover:ring-neutral-300 hover:cursor-pointer  
+              ${
+                isOpen
+                  ? "flex items-center justify-center whitespace-nowrap bg-white rounded-lg mx-4 my-0 py-2.5"
+                  : "flex items-center whitespace-nowrap bg-white rounded-lg px-4 py-2.5 mx-3 my-0"
+              }
+              "`}
               id="dashboard"
               onClick={() => toggleDropdown("dropdown7")}
             >
-              <div className="w-8 h-8 flex bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg justify-center items-center mr-2 boxShadow">
+              <div
+                className={`w-8 h-8 flex bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg justify-center items-center boxShadow ${
+                  isOpen ? "mr-0" : "mr-2 "
+                }`}
+              >
                 <FontAwesomeIcon
                   className="text-white h-3 w-3"
                   icon={faStore}
                 />
               </div>
 
-              <span className="group-hover:text-purple-600 ml-1 text-sm text-[#344767] font-semibold leading-6">
+              <span
+                className={`"group-hover:text-purple-600 " ${
+                  isOpen
+                    ? "hidden"
+                    : "ml-1 text-sm text-[#344767] font-semibold leading-6"
+                }`}
+              >
                 Dashboards
               </span>
               <FontAwesomeIcon
                 className={`group-hover:stroke-white ml-16 h-2.5 w-2.5  text-[#4b5568] transition-all ${
                   openDropdown === "dropdown7" ? "rotate-180" : ""
-                }`}
+                } ${isOpen ? "hidden" : ""}`}
                 icon={faAngleDown}
               />
             </a>
@@ -146,29 +186,35 @@ const SideBar = () => {
             </div>
           </li>
           <li className="mt-4 w-full">
-            <h6 className="pl-6 ml-2 mb-2 font-bold leading-tight opacity-60 uppercase text-xs">
+            <h6 className="pl-6 mb-2 font-bold leading-tight opacity-60 uppercase text-xs">
               Pages
             </h6>
           </li>
-          <li className="mt-0.5 w-56">
+          <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
             <button
               id="doubleDropdownButton"
               data-dropdown-toggle="dropdown"
               type="button"
-              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
+              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-2.5 my-0"
               onClick={() => toggleDropdown("dropdown1")}
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon className="h-3 w-3" icon={faCity} />
               </div>
 
-              <span className="text-sm text-[#67748e] font-normal leading-6">
+              <span
+                className={`${
+                  isOpen
+                    ? "hidden"
+                    : "text-sm text-[#67748e] font-normal leading-6"
+                }`}
+              >
                 Pages
               </span>
               <svg
                 className={`w-2 h-2 ml-auto transition-all ${
                   openDropdown === "dropdown1" ? "rotate-180" : ""
-                }`}
+                } ${isOpen ? "hidden" : ""}`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -196,12 +242,12 @@ const SideBar = () => {
               </ul>
             </div>
           </li>
-          <li className="mt-0.5 w-56">
+          <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
             <button
               id="doubleDropdownButton"
               data-dropdown-toggle="dropdown"
               type="button"
-              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
+              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-2.5 my-0"
               onClick={() => toggleDropdown("dropdown2")}
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
@@ -211,13 +257,19 @@ const SideBar = () => {
                 />
               </div>
 
-              <span className="text-sm text-[#67748e] font-normal leading-6">
+              <span
+                className={`${
+                  isOpen
+                    ? "hidden"
+                    : "text-sm text-[#67748e] font-normal leading-6"
+                }`}
+              >
                 Applications
               </span>
               <svg
                 className={`w-2 h-2 ml-auto transition-all ${
                   openDropdown === "dropdown2" ? "rotate-180" : ""
-                }`}
+                } ${isOpen ? "hidden" : ""}`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -245,25 +297,31 @@ const SideBar = () => {
               </ul>
             </div>
           </li>
-          <li className="mt-0.5 w-56">
+          <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
             <button
               id="doubleDropdownButton"
               data-dropdown-toggle="dropdown"
               type="button"
-              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
+              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-2.5 my-0"
               onClick={() => toggleDropdown("dropdown3")}
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon className="h-3 w-3" icon={faBasketShopping} />
               </div>
 
-              <span className="text-sm text-[#67748e] font-normal leading-6">
+              <span
+                className={`${
+                  isOpen
+                    ? "hidden"
+                    : "text-sm text-[#67748e] font-normal leading-6"
+                }`}
+              >
                 Ecommerce
               </span>
               <svg
                 className={`w-2 h-2 ml-auto transition-all ${
                   openDropdown === "dropdown3" ? "rotate-180" : ""
-                }`}
+                } ${isOpen ? "hidden" : ""}`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -291,25 +349,31 @@ const SideBar = () => {
               </ul>
             </div>
           </li>
-          <li className="mt-0.5 w-56">
+          <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
             <button
               id="doubleDropdownButton"
               data-dropdown-toggle="dropdown"
               type="button"
-              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
+              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-2.5 my-0"
               onClick={() => toggleDropdown("dropdown4")}
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon className="h-3 w-3" icon={faStore} />
               </div>
 
-              <span className="text-sm text-[#67748e] font-normal leading-6">
+              <span
+                className={`${
+                  isOpen
+                    ? "hidden"
+                    : "text-sm text-[#67748e] font-normal leading-6"
+                }`}
+              >
                 Authentication
               </span>
               <svg
                 className={`w-2 h-2 ml-auto transition-all ${
                   openDropdown === "dropdown4" ? "rotate-180" : ""
-                }`}
+                } ${isOpen ? "hidden" : ""}`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -337,31 +401,41 @@ const SideBar = () => {
               </ul>
             </div>
           </li>
-          <hr className="border-t w-60 my-4 h-px bg-transparent bg-gradient-to-r from-transparent via-black/25 to-transparent " />
+          <hr
+            className={`border-t my-4 h-px bg-transparent bg-gradient-to-r from-transparent via-black/25 to-transparent  ${
+              isOpen ? "w-20" : "w-60"
+            }`}
+          />
           <li className="mt-0 w-full">
-            <h6 className="pl-6 ml-2 mb-2 font-bold leading-tight opacity-60 uppercase text-xs">
+            <h6 className="pl-6 mb-2 font-bold leading-tight opacity-60 uppercase text-xs">
               Docs
             </h6>
           </li>
-          <li className="mt-0.5 w-56">
+          <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
             <button
               id="doubleDropdownButton"
               data-dropdown-toggle="dropdown"
               type="button"
-              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
+              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-2.5 my-0"
               onClick={() => toggleDropdown("dropdown5")}
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon className="h-3 w-3" icon={faRocket} />
               </div>
 
-              <span className="text-sm text-[#67748e] font-normal leading-6">
+              <span
+                className={`${
+                  isOpen
+                    ? "hidden"
+                    : "text-sm text-[#67748e] font-normal leading-6"
+                }`}
+              >
                 Basic
               </span>
               <svg
                 className={`w-2 h-2 ml-auto transition-all ${
                   openDropdown === "dropdown5" ? "rotate-180" : ""
-                }`}
+                } ${isOpen ? "hidden" : ""}`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -387,25 +461,31 @@ const SideBar = () => {
               </ul>
             </div>
           </li>
-          <li className="mt-0.5 w-56">
+          <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
             <button
               id="doubleDropdownButton"
               data-dropdown-toggle="dropdown"
               type="button"
-              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
+              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-2.5 my-0"
               onClick={() => toggleDropdown("dropdown6")}
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon className="h-3 w-3" icon={faCreditCard} />
               </div>
 
-              <span className="text-sm text-[#67748e] font-normal leading-6">
+              <span
+                className={`${
+                  isOpen
+                    ? "hidden"
+                    : "text-sm text-[#67748e] font-normal leading-6"
+                }`}
+              >
                 Components
               </span>
               <svg
                 className={`w-2 h-2 ml-auto transition-all ${
                   openDropdown === "dropdown6" ? "rotate-180" : ""
-                }`}
+                } ${isOpen ? "hidden" : ""}`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -437,18 +517,24 @@ const SideBar = () => {
               </ul>
             </div>
           </li>
-          <li className="mt-0.5 w-56">
+          <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
             <button
               id="doubleDropdownButton"
               data-dropdown-toggle="dropdown"
               type="button"
-              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-4 my-0"
+              className="flex items-center w-full whitespace-nowrap px-4 py-2.5 mx-2.5 my-0"
             >
               <div className="w-8 h-8 flex bg-white rounded-lg justify-center items-center mr-2 shadow-xl">
                 <FontAwesomeIcon className="h-3 w-3" icon={faCreditCard} />
               </div>
 
-              <span className="text-sm text-[#67748e] font-normal leading-6">
+              <span
+                className={`${
+                  isOpen
+                    ? "hidden"
+                    : "text-sm text-[#67748e] font-normal leading-6"
+                }`}
+              >
                 Changelog
               </span>
             </button>
