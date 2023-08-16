@@ -70,14 +70,14 @@ const SideBar = ({ isOpen }: SidebarProps) => {
   return (
     <aside
       className={`" inset-y-0 psOver bg-[#e5e9ed] mt-4 mr-0 mb-4 ml-4 bg-transparent rounded-2xl " ${
-        isOpen ? "fixed  transition-all" : "fixed h transition-all"
+        isOpen ? "fixed transition-all " : "fixed transition-all "
       }`}
     >
       <div
         className={` ${
           isOpen
             ? "flex items-center justify-center h-20 px-5 py-6"
-            : "h-20 px-8 py-6"
+            : "h-20 px-5 py-6"
         }`}
       >
         <a className="flex items-center">
@@ -105,7 +105,7 @@ const SideBar = ({ isOpen }: SidebarProps) => {
               className={`"group hover:bg-neutral-300 hover:ring-neutral-300 hover:cursor-pointer  
               ${
                 isOpen
-                  ? "flex items-center justify-center whitespace-nowrap bg-white rounded-lg mx-4 my-0 py-2.5"
+                  ? "flex items-center justify-center whitespace-nowrap bg-white rounded-lg mx-3 my-0 py-2.5"
                   : "flex items-center whitespace-nowrap bg-white rounded-lg px-4 py-2.5 mx-3 my-0"
               }
               "`}

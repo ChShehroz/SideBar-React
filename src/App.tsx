@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <div className="flex">
-        <div className={`${isSidebarOpen ? "w-[130px]" : "w-[274px]"}`}>
+        <div className={`${isSidebarOpen ? "w-[130px] " : "w-[274px]"}`}>
           <SideBar isOpen={isSidebarOpen} />
         </div>
         <div className="w-auto ">
