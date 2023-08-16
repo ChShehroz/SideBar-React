@@ -22,6 +22,40 @@ const DropdownItem = ({ icon, text }: { icon: any; text: string }) => (
   </li>
 );
 
+interface DropdownItemDashProps {
+  icon: any;
+  text: string;
+  index: number;
+  active: number;
+  onClick: any;
+}
+
+const DropdownItemDash: React.FC<DropdownItemDashProps> = ({
+  icon,
+  text,
+  index,
+  active,
+  onClick,
+}) => (
+  <li className="w-full">
+    <a
+      className={`flex gap-6 text-sm py-1.5 ml-5.5 pl-1 my-1 mr-4 items-center bg-transparent whitespace-nowrap
+     pr-4 font-normal hover:cursor-pointer focus:text-[#c3c4c7] shadow-none transition-colors ${
+       active === index
+         ? "text-[#3a416f] text-base font-medium"
+         : "text-slate-800/50 "
+     }`}
+      onClick={onClick}
+    >
+      <FontAwesomeIcon
+        className={`${active === index ? "h-2 w-2" : "h-1.5 w-1.5"}`}
+        icon={icon}
+      />
+      <span>{text}</span>
+    </a>
+  </li>
+);
+
 const SideBar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
@@ -30,7 +64,7 @@ const SideBar = () => {
       prevDropdown === dropdownId ? null : dropdownId
     );
   };
-
+  const [active, setActive] = useState(0);
   return (
     <aside className="fixed inset-y-0 overflow-y-auto w-[274px] psOver bg-[#e5e9ed] mt-4 mr-0 mb-4 ml-4 bg-transparent rounded-2xl psActiveY">
       <div className="h-20 px-8 py-6">
@@ -48,6 +82,7 @@ const SideBar = () => {
             <a
               className="group flex items-center whitespace-nowrap bg-white rounded-lg px-4 py-2.5 mx-4 my-0 hover:bg-neutral-300 hover:ring-neutral-300 hover:cursor-pointer"
               id="dashboard"
+              onClick={() => toggleDropdown("dropdown7")}
             >
               <div className="w-8 h-8 flex bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg justify-center items-center mr-2 boxShadow">
                 <FontAwesomeIcon
@@ -60,10 +95,55 @@ const SideBar = () => {
                 Dashboards
               </span>
               <FontAwesomeIcon
-                className="group-hover:stroke-white ml-16 h-2.5 w-2.5  text-[#4b5568]"
+                className={`group-hover:stroke-white ml-16 h-2.5 w-2.5  text-[#4b5568] transition-all ${
+                  openDropdown === "dropdown7" ? "rotate-180" : ""
+                }`}
                 icon={faAngleDown}
               />
             </a>
+            <div
+              className={`h-auto overflow-hidden transition-all duration-200 ease-in-out ${
+                openDropdown === "dropdown7" ? "max-h-[500px]" : "max-h-0"
+              }`}
+            >
+              <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                <DropdownItemDash
+                  icon={faCircle}
+                  text="Default"
+                  index={0}
+                  active={active}
+                  onClick={() => setActive(0)}
+                />
+                <DropdownItemDash
+                  icon={faCircle}
+                  text="Automotive"
+                  index={1}
+                  active={active}
+                  onClick={() => setActive(1)}
+                />
+                <DropdownItemDash
+                  icon={faCircle}
+                  text="Smart Home"
+                  index={2}
+                  active={active}
+                  onClick={() => setActive(2)}
+                />
+                <DropdownItemDash
+                  icon={faCircle}
+                  text="Virtual Reality"
+                  index={3}
+                  active={active}
+                  onClick={() => setActive(3)}
+                />
+                <DropdownItemDash
+                  icon={faCircle}
+                  text="CRM"
+                  index={4}
+                  active={active}
+                  onClick={() => setActive(4)}
+                />
+              </ul>
+            </div>
           </li>
           <li className="mt-4 w-full">
             <h6 className="pl-6 ml-2 mb-2 font-bold leading-tight opacity-60 uppercase text-xs">
