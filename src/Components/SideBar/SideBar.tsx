@@ -43,9 +43,9 @@ const DropdownItemDash: React.FC<DropdownItemDashProps> = ({
   <li className="w-full">
     <a
       className={`flex gap-6 text-sm py-1.5 ml-5.5 pl-1 my-1 mr-4 items-center bg-transparent whitespace-nowrap
-     pr-4 font-normal hover:cursor-pointer focus:text-[#c3c4c7] shadow-none transition-colors ${
+     pr-4 font-normal hover:cursor-pointer shadow-none transition-colors ${
        active === index
-         ? "text-[#3a416f] text-base font-medium"
+         ? "text-[#3a416f] text-base font-semibold"
          : "text-slate-800/50 "
      }`}
       onClick={onClick}
@@ -146,43 +146,83 @@ const SideBar = ({ isOpen }: SidebarProps) => {
                 openDropdown === "dropdown7" ? "max-h-[500px]" : "max-h-0"
               }`}
             >
-              <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
-                <DropdownItemDash
-                  icon={faCircle}
-                  text="Default"
-                  index={0}
-                  active={active}
-                  onClick={() => setActive(0)}
-                />
-                <DropdownItemDash
-                  icon={faCircle}
-                  text="Automotive"
-                  index={1}
-                  active={active}
-                  onClick={() => setActive(1)}
-                />
-                <DropdownItemDash
-                  icon={faCircle}
-                  text="Smart Home"
-                  index={2}
-                  active={active}
-                  onClick={() => setActive(2)}
-                />
-                <DropdownItemDash
-                  icon={faCircle}
-                  text="Virtual Reality"
-                  index={3}
-                  active={active}
-                  onClick={() => setActive(3)}
-                />
-                <DropdownItemDash
-                  icon={faCircle}
-                  text="CRM"
-                  index={4}
-                  active={active}
-                  onClick={() => setActive(4)}
-                />
-              </ul>
+              {isOpen === false ? (
+                <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItemDash
+                    icon={faCircle}
+                    text="Default"
+                    index={0}
+                    active={active}
+                    onClick={() => setActive(0)}
+                  />
+                  <DropdownItemDash
+                    icon={faCircle}
+                    text="Automotive"
+                    index={1}
+                    active={active}
+                    onClick={() => setActive(1)}
+                  />
+                  <DropdownItemDash
+                    icon={faCircle}
+                    text="Smart Home"
+                    index={2}
+                    active={active}
+                    onClick={() => setActive(2)}
+                  />
+                  <DropdownItemDash
+                    icon={faCircle}
+                    text="Virtual Reality"
+                    index={3}
+                    active={active}
+                    onClick={() => setActive(3)}
+                  />
+                  <DropdownItemDash
+                    icon={faCircle}
+                    text="CRM"
+                    index={4}
+                    active={active}
+                    onClick={() => setActive(4)}
+                  />
+                </ul>
+              ) : (
+                <ul className="flex flex-col flex-wrap pl-2 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItemDash
+                    icon=""
+                    text="D"
+                    index={0}
+                    active={active}
+                    onClick={() => setActive(0)}
+                  />
+                  <DropdownItemDash
+                    icon=""
+                    text="A"
+                    index={1}
+                    active={active}
+                    onClick={() => setActive(1)}
+                  />
+                  <DropdownItemDash
+                    icon=""
+                    text="S"
+                    index={2}
+                    active={active}
+                    onClick={() => setActive(2)}
+                  />
+                  <DropdownItemDash
+                    icon=""
+                    text="V"
+                    index={3}
+                    active={active}
+                    onClick={() => setActive(3)}
+                  />
+                  <DropdownItemDash
+                    icon=""
+                    text="C"
+                    index={4}
+                    active={active}
+                    onClick={() => setActive(4)}
+                  />
+                </ul>
+              )}
             </div>
           </li>
           <li className="mt-4 w-full">
@@ -234,12 +274,21 @@ const SideBar = ({ isOpen }: SidebarProps) => {
                 openDropdown === "dropdown1" ? "max-h-[500px]" : "max-h-0"
               }`}
             >
-              <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
-                <DropdownItem icon={faCircle} text="Profile" />
-                <DropdownItem icon={faCircle} text="Users" />
-                <DropdownItem icon={faCircle} text="Account" />
-                <DropdownItem icon={faCircle} text="Pricing Page" />
-              </ul>
+              {isOpen === false ? (
+                <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon={faCircle} text="Profile" />
+                  <DropdownItem icon={faCircle} text="Users" />
+                  <DropdownItem icon={faCircle} text="Account" />
+                  <DropdownItem icon={faCircle} text="Pricing Page" />
+                </ul>
+              ) : (
+                <ul className="flex flex-col flex-wrap pl-2.5 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon="" text="P" />
+                  <DropdownItem icon="" text="U" />
+                  <DropdownItem icon="" text="A" />
+                  <DropdownItem icon="" text="P" />
+                </ul>
+              )}
             </div>
           </li>
           <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
@@ -289,12 +338,21 @@ const SideBar = ({ isOpen }: SidebarProps) => {
                 openDropdown === "dropdown2" ? "max-h-[500px]" : "max-h-0"
               }`}
             >
-              <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
-                <DropdownItem icon={faCircle} text="Wizard" />
-                <DropdownItem icon={faCircle} text="DataTables" />
-                <DropdownItem icon={faCircle} text="Calender" />
-                <DropdownItem icon={faCircle} text="Analytics" />
-              </ul>
+              {isOpen === false ? (
+                <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon={faCircle} text="Wizard" />
+                  <DropdownItem icon={faCircle} text="DataTables" />
+                  <DropdownItem icon={faCircle} text="Calender" />
+                  <DropdownItem icon={faCircle} text="Analytics" />
+                </ul>
+              ) : (
+                <ul className="flex flex-col flex-wrap pl-2.5 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon="" text="W" />
+                  <DropdownItem icon="" text="D" />
+                  <DropdownItem icon="" text="C" />
+                  <DropdownItem icon="" text="A" />
+                </ul>
+              )}
             </div>
           </li>
           <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
@@ -341,12 +399,21 @@ const SideBar = ({ isOpen }: SidebarProps) => {
                 openDropdown === "dropdown3" ? "max-h-[500px]" : "max-h-0"
               }`}
             >
-              <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
-                <DropdownItem icon={faCircle} text="Overview" />
-                <DropdownItem icon={faCircle} text="Products" />
-                <DropdownItem icon={faCircle} text="Orders" />
-                <DropdownItem icon={faCircle} text="Referral" />
-              </ul>
+              {isOpen === false ? (
+                <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon={faCircle} text="Overview" />
+                  <DropdownItem icon={faCircle} text="Products" />
+                  <DropdownItem icon={faCircle} text="Orders" />
+                  <DropdownItem icon={faCircle} text="Referral" />
+                </ul>
+              ) : (
+                <ul className="flex flex-col flex-wrap pl-2.5 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon="" text="O" />
+                  <DropdownItem icon="" text="P" />
+                  <DropdownItem icon="" text="O" />
+                  <DropdownItem icon="" text="R" />
+                </ul>
+              )}
             </div>
           </li>
           <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
@@ -393,12 +460,21 @@ const SideBar = ({ isOpen }: SidebarProps) => {
                 openDropdown === "dropdown4" ? "max-h-[500px]" : "max-h-0"
               }`}
             >
-              <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
-                <DropdownItem icon={faCircle} text="SignIn" />
-                <DropdownItem icon={faCircle} text="SignUp" />
-                <DropdownItem icon={faCircle} text="Lock" />
-                <DropdownItem icon={faCircle} text="Error" />
-              </ul>
+              {isOpen === false ? (
+                <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon={faCircle} text="SignIn" />
+                  <DropdownItem icon={faCircle} text="SignUp" />
+                  <DropdownItem icon={faCircle} text="Lock" />
+                  <DropdownItem icon={faCircle} text="Error" />
+                </ul>
+              ) : (
+                <ul className="flex flex-col flex-wrap pl-2.5 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon="" text="S" />
+                  <DropdownItem icon="" text="S" />
+                  <DropdownItem icon="" text="L" />
+                  <DropdownItem icon="" text="E" />
+                </ul>
+              )}
             </div>
           </li>
           <hr
@@ -455,10 +531,17 @@ const SideBar = ({ isOpen }: SidebarProps) => {
                 openDropdown === "dropdown5" ? "max-h-[500px]" : "max-h-0"
               }`}
             >
-              <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
-                <DropdownItem icon={faCircle} text="Getting Started" />
-                <DropdownItem icon={faCircle} text="Foundation" />
-              </ul>
+              {isOpen === false ? (
+                <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon={faCircle} text="Getting Started" />
+                  <DropdownItem icon={faCircle} text="Foundation" />
+                </ul>
+              ) : (
+                <ul className="flex flex-col flex-wrap pl-2.5 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon="" text="G" />
+                  <DropdownItem icon="" text="F" />
+                </ul>
+              )}
             </div>
           </li>
           <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
@@ -505,16 +588,29 @@ const SideBar = ({ isOpen }: SidebarProps) => {
                 openDropdown === "dropdown6" ? "max-h-[500px]" : "max-h-0"
               }`}
             >
-              <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
-                <DropdownItem icon={faCircle} text="Alert" />
-                <DropdownItem icon={faCircle} text="Badge" />
-                <DropdownItem icon={faCircle} text="Buttons" />
-                <DropdownItem icon={faCircle} text="Card" />
-                <DropdownItem icon={faCircle} text="Forms" />
-                <DropdownItem icon={faCircle} text="Navs" />
-                <DropdownItem icon={faCircle} text="NavBar" />
-                <DropdownItem icon={faCircle} text="Model" />
-              </ul>
+              {isOpen === false ? (
+                <ul className="flex flex-col flex-wrap pl-4 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon={faCircle} text="Alert" />
+                  <DropdownItem icon={faCircle} text="Badge" />
+                  <DropdownItem icon={faCircle} text="Buttons" />
+                  <DropdownItem icon={faCircle} text="Card" />
+                  <DropdownItem icon={faCircle} text="Forms" />
+                  <DropdownItem icon={faCircle} text="Navs" />
+                  <DropdownItem icon={faCircle} text="NavBar" />
+                  <DropdownItem icon={faCircle} text="Model" />
+                </ul>
+              ) : (
+                <ul className="flex flex-col flex-wrap pl-2.5 mb-0 ml-6 list-none transition-all duration-200 ease-in-out">
+                  <DropdownItem icon="" text="A" />
+                  <DropdownItem icon="" text="B" />
+                  <DropdownItem icon="" text="B" />
+                  <DropdownItem icon="" text="C" />
+                  <DropdownItem icon="" text="F" />
+                  <DropdownItem icon="" text="N" />
+                  <DropdownItem icon="" text="N" />
+                  <DropdownItem icon="" text="M" />
+                </ul>
+              )}
             </div>
           </li>
           <li className={`mt-0.5 ${isOpen ? "w-[72px]" : "w-56"}`}>
