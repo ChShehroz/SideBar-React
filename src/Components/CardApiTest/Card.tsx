@@ -65,13 +65,18 @@ const Card = () => {
                   ID: {post.id}
                 </h1>
                 {editingIndex === index ? (
-                  <div className="flex items-center space-x-2">
+                  <div className="flex flex-col items-center space-x-2">
                     <input
                       value={tempTitle}
                       onChange={(e) => handleTitleChange(e.target.value)}
-                      className="border rounded w-full text-center"
+                      className="mt-2 p-1 border rounded-lg w-full text-start"
                     />
-                    <button onClick={() => handleTitleSave(index)}>Save</button>
+                    <button
+                      className="mx-auto border border-green-500 hover:bg-green-100 text-green-500 mt-2 px-3 py-0 rounded-[25px]"
+                      onClick={() => handleTitleSave(index)}
+                    >
+                      Save
+                    </button>
                   </div>
                 ) : (
                   <h2
