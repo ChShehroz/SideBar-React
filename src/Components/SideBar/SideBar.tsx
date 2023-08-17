@@ -51,7 +51,7 @@ const DropdownItemDash: React.FC<DropdownItemDashProps> = ({
       onClick={onClick}
     >
       <FontAwesomeIcon
-        className={`${active === index ? "h-2 w-2" : "h-1.5 w-1.5"} `}
+        className={`${active === index ? "h-2.5 w-2" : "h-1.5 w-2"} `}
         icon={icon}
       />
 
