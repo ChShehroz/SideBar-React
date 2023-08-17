@@ -13,14 +13,9 @@ import "../../Assest/Style/Index.css";
 import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 
-const DropdownItem = ({ icon, text }: { icon: any; text: string }) => (
-  <li className="w-full">
-    <a className="hover:cursor-pointer flex gap-5 text-sm py-1.5 ml-5.5 pl-1 my-0 mr-4 items-center bg-transparent whitespace-nowrap pr-4 font-normal text-slate-800/50 shadow-none transition-colors">
-      <FontAwesomeIcon className="h-1.5 w-1.5" icon={icon} />
-      <span>{text}</span>
-    </a>
-  </li>
-);
+interface SidebarProps {
+  isOpen: boolean;
+}
 
 interface DropdownItemDashProps {
   icon: any;
@@ -29,6 +24,14 @@ interface DropdownItemDashProps {
   active: number;
   onClick: any;
 }
+const DropdownItem = ({ icon, text }: { icon: any; text: string }) => (
+  <li className="w-full">
+    <a className="hover:cursor-pointer flex gap-5 text-sm py-1.5 ml-5.5 pl-1 my-0 mr-4 items-center bg-transparent whitespace-nowrap pr-4 font-normal text-slate-800/50 shadow-none transition-colors">
+      <FontAwesomeIcon className="h-1.5 w-1.5" icon={icon} />
+      <span>{text}</span>
+    </a>
+  </li>
+);
 
 const DropdownItemDash: React.FC<DropdownItemDashProps> = ({
   icon,
@@ -48,16 +51,15 @@ const DropdownItemDash: React.FC<DropdownItemDashProps> = ({
       onClick={onClick}
     >
       <FontAwesomeIcon
-        className={`${active === index ? "h-2 w-2" : "h-1.5 w-1.5"}`}
+        className={`${active === index ? "h-2 w-2" : "h-1.5 w-1.5"} `}
         icon={icon}
       />
+
       <span>{text}</span>
     </a>
   </li>
 );
-interface SidebarProps {
-  isOpen: boolean;
-}
+
 const SideBar = ({ isOpen }: SidebarProps) => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
@@ -102,18 +104,18 @@ const SideBar = ({ isOpen }: SidebarProps) => {
         <ul className="flex flex-col pl-0 mb-0 list-none">
           <li className={`mt-0.5 ${isOpen ? "w-[82px]" : "w-full "}`}>
             <a
-              className={`"group hover:bg-neutral-300 hover:ring-neutral-300 hover:cursor-pointer  
+              className={`"group hover:bg-neutral-300 hover:ring-neutral-300 hover:cursor-pointer 
               ${
                 isOpen
                   ? "flex items-center justify-center whitespace-nowrap bg-white rounded-lg mx-3 my-0 py-2.5"
-                  : "flex items-center whitespace-nowrap bg-white rounded-lg px-4 py-2.5 mx-3 my-0"
+                  : "group flex items-center whitespace-nowrap bg-white rounded-lg px-4 py-2.5 mx-3 my-0"
               }
               "`}
               id="dashboard"
               onClick={() => toggleDropdown("dropdown7")}
             >
               <div
-                className={`w-8 h-8 flex bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg justify-center items-center boxShadow ${
+                className={`group w-8 h-8 flex bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg justify-center items-center boxShadow ${
                   isOpen ? "mr-0" : "mr-2 "
                 }`}
               >
@@ -124,10 +126,10 @@ const SideBar = ({ isOpen }: SidebarProps) => {
               </div>
 
               <span
-                className={`"group-hover:text-purple-600 " ${
+                className={` ${
                   isOpen
                     ? "hidden"
-                    : "ml-1 text-sm text-[#344767] font-semibold leading-6"
+                    : "ml-1 text-sm text-[#344767] font-semibold leading-6 group-hover:text-purple-600"
                 }`}
               >
                 Dashboards
