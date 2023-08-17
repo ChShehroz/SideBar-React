@@ -17,6 +17,28 @@ const Card = () => {
     setPosts(updatedPosts);
   };
 
+  // Step 1: Create a new state for edit mode
+  const [editingIndex, setEditingIndex] = useState<number | null>(null);
+  const [tempTitle, setTempTitle] = useState<string>("");
+
+  // Step 2: Toggling the edit mode
+  const handleEditClick = (index: number, title: string) => {
+    setEditingIndex(index);
+    setTempTitle(title);
+  };
+
+  // Step 3: Handle title changes
+  const handleTitleChange = (title: string) => {
+    setTempTitle(title);
+  };
+
+  const handleTitleSave = (index: number) => {
+    const updatedPosts = [...posts];
+    updatedPosts[index].title = tempTitle;
+    setPosts(updatedPosts);
+    setEditingIndex(null);
+  };
+
   useEffect(() => {
     axios
       .get<Post[]>("https://jsonplaceholder.typicode.com/posts")
@@ -42,9 +64,23 @@ const Card = () => {
                 <h1 className="text-[#344767] font-semibold text-center ">
                   ID: {post.id}
                 </h1>
-                <h2 className="text-[#67748e] h-20 capitalize mt-2 mb-7 text-center text-lg font-extralight">
-                  {post.title}
-                </h2>
+                {editingIndex === index ? (
+                  <div className="flex items-center space-x-2">
+                    <input
+                      value={tempTitle}
+                      onChange={(e) => handleTitleChange(e.target.value)}
+                      className="border rounded w-full text-center"
+                    />
+                    <button onClick={() => handleTitleSave(index)}>Save</button>
+                  </div>
+                ) : (
+                  <h2
+                    onClick={() => handleEditClick(index, post.title)}
+                    className="cursor-pointer text-[#67748e] h-20 capitalize mt-2 mb-7 text-center text-lg font-extralight"
+                  >
+                    {post.title}
+                  </h2>
+                )}
                 <p className="text-[#344767] text-center text-sm mb-3 p-2">
                   {post.body}
                 </p>
