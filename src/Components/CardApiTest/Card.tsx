@@ -12,22 +12,23 @@ interface Post {
 const Card = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
+  // Delete the card
   const handleDelete = (indexValue: number) => {
     const updatedPosts = posts.filter((_, index) => index !== indexValue);
     setPosts(updatedPosts);
   };
 
-  // Step 1: Create a new state for edit mode
+  // Create a new state for edit mode
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [tempTitle, setTempTitle] = useState<string>("");
 
-  // Step 2: Toggling the edit mode
+  // Toggling the edit mode
   const handleEditClick = (index: number, title: string) => {
     setEditingIndex(index);
     setTempTitle(title);
   };
 
-  // Step 3: Handle title changes
+  // Handle title changes
   const handleTitleChange = (title: string) => {
     setTempTitle(title);
   };
