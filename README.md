@@ -1,6 +1,28 @@
-# Getting Started with Create React App
+# 🚀 softdashx – Soft UI Dashboard PRO  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Project Overview  
+**softdashx** is a beautifully designed **React + TypeScript** dashboard featuring a sleek **Soft UI** aesthetic. It includes a **side navigation panel** and integrates **JSONPlaceholder API** to dynamically fetch and display posts in stylish cards. Users can also delete cards for testing. Built with **Tailwind CSS**, this project offers a modern and responsive experience.  
+
+## ✨ Features  
+
+- **Elegant Soft UI Design** – Clean and modern aesthetics  
+- **Side Navigation** – Smooth and responsive navigation panel  
+- **API Integration** – Fetch posts dynamically from JSONPlaceholder  
+- **Card Management** – Display and delete cards for testing  
+- **React + TypeScript** – Scalable and type-safe codebase  
+- **Tailwind CSS** – Utility-first styling for flexibility  
+
+## 🔗 API Integration  
+
+This project fetches data from **JSONPlaceholder**, a free fake API for testing:  
+
+- **Endpoint Used:**  
+  ```bash
+  https://jsonplaceholder.typicode.com/posts
+
+## 🌐 Live Demo  
+🚀 [SoftDashX is Live!](https://softdashx.vercel.app/)  
+
 
 ## Available Scripts
 
@@ -32,15 +54,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
